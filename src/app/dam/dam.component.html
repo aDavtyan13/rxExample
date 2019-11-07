@@ -1,1 +1,13 @@
-<p>dam works!</p>
+<div class = "entire">
+    <header *ngIf="showHide">
+        <p>menu</p>
+    </header>
+    
+    
+    <div class="button">
+        <button (click)="show()">Show</button>
+
+        <button (click)="hide()">Hide</button>
+    </div>
+    
+</div>

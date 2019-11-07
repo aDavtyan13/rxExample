@@ -13,7 +13,9 @@ export class FirstService {
   // simpleBehavior$ = new BehaviorSubject(null);
 
 
-  behaviorExample$ = new BehaviorSubject(null);
+  // behaviorExample$ = new BehaviorSubject(null);
+
+  headerBehavior$=new BehaviorSubject(null);
 
   constructor() { 
     
@@ -33,9 +35,9 @@ export class FirstService {
   //   return this.array;
   // }
   
-  nameService(){
-    return this.behaviorExample$;
-    //this.behaviorExample$.next(localStorage.getItem('name'));
-  }
+  // nameService(){
+  //   return this.behaviorExample$;
+  //   //this.behaviorExample$.next(localStorage.getItem('name'));
+  // }
 
 }

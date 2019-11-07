@@ -1,0 +1,25 @@
+header{
+    height: 73px;
+    background-color: cadetblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+p{
+    color: wheat;
+}
+
+button{
+    display: flex;
+    background-color: cadetblue;
+    margin: 13px auto;
+    cursor: pointer;
+    outline: none;
+}
+
+.entire{
+    display: flex;
+    flex-direction: column;
+   
+}
+

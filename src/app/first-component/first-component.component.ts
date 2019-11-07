@@ -27,7 +27,7 @@ export class FirstComponentComponent implements OnInit {
   }
 
   onSubmit(){
-    this.firstChange.behaviorExample$.next(this.damPage.value.name);
+    // this.firstChange.behaviorExample$.next(this.damPage.value.name);
     
     // console.log(this.damPage.value.name);
     //localStorage.setItem('name',this.damPage.value.name);

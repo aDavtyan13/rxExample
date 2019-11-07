@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FirstService } from '../first.service';
 import { take } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-dam',
@@ -12,7 +13,10 @@ export class DamComponent implements OnInit {
   subscription;
   unsubscription;
 
-  constructor(private dam:FirstService) {
+  
+  public showHide=true;
+
+  constructor(private dam:FirstService,private http: HttpClient) {
 
     // console.log(dam.newDam()); 
 
@@ -29,6 +33,22 @@ export class DamComponent implements OnInit {
 
     // dam.firstComponent();
 
+
+
+    // this.dam.headerBehavior$.subscribe(dam=>this.da=dam)
+
+   }
+
+   hide(){
+     this.dam.headerBehavior$.subscribe(hidden=>this.showHide=hidden);
+     this.dam.headerBehavior$.next(false);
+
+     return this.http.get('https://cat-fact.herokuapp.com/facts').subscribe(data=>console.log(data));
+   }
+
+   show(){
+    this.dam.headerBehavior$.subscribe(show=>this.showHide=show);
+    this.dam.headerBehavior$.next(true);
    }
 
   ngOnInit() {
