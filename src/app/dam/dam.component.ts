@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FirstService } from '../first.service';
-import { take } from 'rxjs/operators';
+import { take, switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -12,11 +12,21 @@ export class DamComponent implements OnInit {
 
   subscription;
   unsubscription;
+  damError;
 
-  
-  public showHide=true;
+  public showHide = true;
 
-  constructor(private dam:FirstService,private http: HttpClient) {
+  constructor(private dam: FirstService, private http: HttpClient) {
+
+    //this.dam.headerBehavior$.subscribe(dada=>console.log(dada));
+
+    // dam.urlOpen().pipe(
+    //   switchMap(data => Object.values(data).filter(v=>v))
+    // ).subscribe(x=> console.log(x));
+    
+
+    dam.urlOpen();
+    this.damError=dam.headerBehavior$;
 
     // console.log(dam.newDam()); 
 
@@ -33,29 +43,26 @@ export class DamComponent implements OnInit {
 
     // dam.firstComponent();
 
-
-
     // this.dam.headerBehavior$.subscribe(dam=>this.da=dam)
 
-   }
+  }
 
-   hide(){
-     this.dam.headerBehavior$.subscribe(hidden=>this.showHide=hidden);
-     this.dam.headerBehavior$.next(false);
+  hide() {
+    this.dam.headerBehavior$.subscribe(hidden => this.showHide = hidden);
+    this.dam.headerBehavior$.next(false);
 
-     return this.http.get('https://cat-fact.herokuapp.com/facts').subscribe(data=>console.log(data));
-   }
+  }
 
-   show(){
-    this.dam.headerBehavior$.subscribe(show=>this.showHide=show);
+  show() {
+    this.dam.headerBehavior$.subscribe(show => this.showHide = show);
     this.dam.headerBehavior$.next(true);
-   }
+  }
 
   ngOnInit() {
 
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     // this.subscription.unsubscribe();
     //this.unsubscription.unsubscribe();
   }
