@@ -20,13 +20,21 @@ export class DamComponent implements OnInit {
 
     //this.dam.headerBehavior$.subscribe(dada=>console.log(dada));
 
+
+    /*********************URL open ******************/
     // dam.urlOpen().pipe(
     //   switchMap(data => Object.values(data).filter(v=>v))
     // ).subscribe(x=> console.log(x));
-    
+    /*********************URL open ******************/
 
-    dam.urlOpen();
-    this.damError=dam.headerBehavior$;
+
+
+    /****************************ERROR **********************/
+    // dam.urlOpen();
+    // this.damError=dam.headerBehavior$;
+    /****************************ERROR **********************/
+
+
 
     // console.log(dam.newDam()); 
 
@@ -47,6 +55,9 @@ export class DamComponent implements OnInit {
 
   }
 
+
+
+  /*********************SHOW HIDE*****************/
   hide() {
     this.dam.headerBehavior$.subscribe(hidden => this.showHide = hidden);
     this.dam.headerBehavior$.next(false);
@@ -57,13 +68,14 @@ export class DamComponent implements OnInit {
     this.dam.headerBehavior$.subscribe(show => this.showHide = show);
     this.dam.headerBehavior$.next(true);
   }
+  /*********************SHOW HIDE*****************/
 
   ngOnInit() {
 
   }
 
   ngOnDestroy() {
-    // this.subscription.unsubscribe();
+    //this.subscription.unsubscribe();
     //this.unsubscription.unsubscribe();
   }
 

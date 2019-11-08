@@ -11,11 +11,11 @@ export class SecondComponentComponent implements OnInit {
 
   constructor(public secondChange:FirstService) {
 
-     //this.secondChange.behaviorExample$.subscribe(dam=>console.log(dam));
+    //  this.secondChange.behaviorExample$.subscribe(dam=>console.log(dam));
 
-    // this.secondChange.behaviorExample$.subscribe(da=>this.dam=da);
+    //  this.secondChange.behaviorExample$.subscribe(da=>this.dam=da);
 
-    //secondChange.nameService();
+    // secondChange.nameService();
 
    }
 
